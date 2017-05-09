@@ -1,49 +1,6 @@
-Array.prototype.square = function() {
- currArray = new Array;
- for(i=0;i<this.length;i++) {
-    currArray[i] = Math.pow(this[i],2);
- }
- return currArray;
-};
-
-Array.prototype.cube = function() {
-currArray = new Array;
- for(i=0;i<this.length;i++) {
-    currArray[i] = Math.pow(this[i],3);
- }
- return currArray;
-};
-
-Array.prototype.sum = function() {
-var sum = 0;
- for(i=0;i<this.length;i++) {
-    sum += this[i];
- }
- return sum;
-};
-
-Array.prototype.average = function() {
-var sum = 0;
- for(i=0;i<this.length;i++) {
-    sum += this[i];
- }
- return sum / this.length;
-};
-
-Array.prototype.even = function() {
-var currArray = new Array;
-var arrayIndex = 0
- for(i=0;i<this.length;i++) {
-    if (this[i] % 2 == 0) { currArray[arrayIndex] = this[i]; arrayIndex++; }
- }
- return currArray;
-};
-
-Array.prototype.odd = function() {
-var currArray = new Array;
-var arrayIndex = 0
- for(i=0;i<this.length;i++) {
-    if (this[i] % 2 == 1) { currArray[arrayIndex] = this[i]; arrayIndex++; }
- }
- return currArray;
-};
+Array.prototype.square  = function () { return this.map(function(n) { return n*n; }); }
+Array.prototype.cube    = function () { return this.map(function(n) { return n*n*n; }); }
+Array.prototype.average = function () { return this.sum() / this.length; }
+Array.prototype.sum     = function () { return this.reduce(function(a, b) { return a + b; }, 0); }
+Array.prototype.even    = function () { return this.filter(function(n) { return 0 == n % 2; }); }
+Array.prototype.odd     = function () { return this.filter(function(n) { return 0 != n % 2; }); }
