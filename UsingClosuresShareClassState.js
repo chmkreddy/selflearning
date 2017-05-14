@@ -1,3 +1,4 @@
+// Let's make a Cat constructor!
 var totalWeight = 0, count = 0;
 
 var Cat = (function (name,weight) {
@@ -24,4 +25,4 @@ var Cat = (function (name,weight) {
 
 });
 
-Cat.averageWeight = function() {  return totalWeight/count };
+Cat.averageWeight = function() {  return count > 0 ? totalWeight/count : 0; };
