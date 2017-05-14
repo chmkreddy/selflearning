@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="catApp" ng-controller="catCtrl">
+    Cat1: </br> <img src="Images/Cat1.jpg" alt="cat" ng-click="updateCount(1);">
+  <p>Count: {{count1}}</p>
+Cat2: </br> <img src="Images/Cat1.jpg" alt="cat" ng-click="updateCount(2);">
+  <p>Count: {{count2}}</p>
+</div>    
+</div>
+    
+<script>
+var app = angular.module('catApp', []);
+app.controller('catCtrl', function($scope) {
+    $scope.count1= 0;
+    $scope.count2= 0;
+    $scope.updateCount = function(index) {
+        if (index == 1) {
+            $scope.count1++;
+        }
+        else if (index == 2) {
+             $scope.count2++;
+        }
+        
+    }
+});
+</script>
+</body>
+</html>

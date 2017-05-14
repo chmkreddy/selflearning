@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="catApp" ng-controller="catCtrl">
+<img src="Images/Cat1.jpg" alt="cat" ng-click="updateCount();">
+  <p>Count: {{count}}</p>
+</div>
+    
+<script>
+var app = angular.module('catApp', []);
+app.controller('catCtrl', function($scope) {
+    $scope.count= 0;
+    $scope.updateCount = function() {
+        $scope.count++;
+    }
+});
+</script>
+</body>
+</html>
