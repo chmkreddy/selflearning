@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="catApp" ng-controller="catCtrl">
+  <select name="billies" ng-model="selectedCat" ng-options="test.name for test in Cats" ng-change="showImage(selectedCat);">
+  <option value="">Select Event</option>
+    </select></br>
+    <span id="lblCatName"></span></br></br>
+    <img id="imgCat" src="" alt="" style="width:300px;height:300px;" ng-click="updateCount();"></img></br>
+      <span id="lblCatCount"></span>
+</div>
+    
+<script>
+var app = angular.module('catApp', []);
+app.controller('catCtrl', function($scope) {
+    
+     $scope.Cats = [
+            {name: "cat1", value:1, count: 0, source:"Images/Cat1.jpg"},
+            {name: "cat2", value:2, count: 0, source:"Images/Cat2.jpg"},
+            {name: "cat3", value:3, count: 0, source:"Images/Cat3.jpg"},
+            {name: "cat4", value:4, count: 0, source:"Images/Cat4.jpg"},
+            {name: "cat5", value:5, count: 0, source:"Images/Cat5.jpg"}
+        ];   
+    
+    $scope.selectedCat = 0;
+    
+  $scope.updateCount = function(){
+      $scope.selectedCat.count++;
+      lblCatCount.innerHTML = $scope.selectedCat.count;
+  }
+      $scope.showImage = function(selectedCat) {
+          $scope.selectedCat = selectedCat;
+          lblCatName.innerHTML = selectedCat.name;
+          imgCat.src = selectedCat.source;
+          lblCatCount.innerHTML = selectedCat.count;
+      }
+});
+</script>
+</body>
+</html>
