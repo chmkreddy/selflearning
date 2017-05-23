@@ -3,7 +3,7 @@ var totalWeight = 0,
     count = 0;
 
 var Cat = (function(name, weight) {
-    if (name == undefined && weight == undefined) {
+    if (!name && !weight) {
         throw "error";
     } else {
         this._name = name;
