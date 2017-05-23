@@ -1,6 +1,6 @@
-function compose(f,g) {
-  // Compose the two functions here!
-   return function() {
-    return f(g.apply(this, arguments));
-  };
+function compose(f, g) {
+    // Compose the two functions here!
+    return function() {
+        return f(g.apply(this, arguments));
+    };
 }
